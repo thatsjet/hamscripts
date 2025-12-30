@@ -52,12 +52,6 @@ Validate config (does not start anything):
 
 ## Configuration (Required)
 
-This runner is intentionally configurable per user/machine.
-
-- Your local config file is: `mac_winlink_runner/winlink_runner.conf`
-- It is **gitignored** (won't be committed).
-- A checked-in template is provided at: `mac_winlink_runner/winlink_runner.conf.template`
-
 Create your config:
 
 ```bash
