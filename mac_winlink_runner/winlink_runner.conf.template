@@ -1,0 +1,36 @@
+# Winlink Runner user config
+#
+# 1) Copy this template to create your local config:
+#      cp winlink_runner.conf.template winlink_runner.conf
+#
+# 2) Edit winlink_runner.conf with your values.
+#
+# NOTE: winlink_runner.conf is gitignored by default.
+
+# Your FCC/IC callsign (used for display and future automation)
+CALLSIGN="YOURCALL"
+
+# Hamlib rig model number (used by rigctld -m)
+# Find yours via either:
+#   - https://github.com/Hamlib/Hamlib/wiki/Supported-Radios
+#   - rigctl -l | less
+HAMLIB_MODEL=3073
+
+# Serial device path for your radio (macOS examples are usually /dev/tty.usbserial-* or /dev/tty.usbmodem*)
+RIG_SERIAL_PORT="/dev/tty.usbserial-XXXX"
+
+# rigctld TCP port
+RIGCTLD_PORT=4532
+
+# How to launch VARA HF.
+# Option A (CrossOver): set VARA_CX_APP to the CrossOver app name (matches your current usage)
+VARA_CX_APP="vara.exe"
+
+# Option B (Wine direct): set VARA_EXE_PATH to a full path to VARA.exe
+# VARA_EXE_PATH="/full/path/to/VARA.exe"
+
+# Pat web UI URL to open in a browser
+PAT_HTTP_URL="http://localhost:8080"
+
+# Browser app name for `open -a` (leave empty to use default browser)
+BROWSER_APP="Google Chrome"
