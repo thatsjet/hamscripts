@@ -18,6 +18,8 @@ Expect things to be informal, well-commented, and approachable — because ham r
 
 See [`mac_winlink_runner/README.md`](mac_winlink_runner/README.md) for details and installation steps.
 
+Note: the runner uses a per-user config file (`mac_winlink_runner/winlink_runner.conf`) that you create by copying the provided template.
+
 ## Quick start
 
 1. Clone this repo.

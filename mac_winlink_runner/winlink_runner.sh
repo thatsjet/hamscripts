@@ -101,10 +101,6 @@ require_dependencies() {
     require_command pat
     require_command wine
 
-    if [ ! -e "$RIG_SERIAL_PORT" ]; then
-        die "RIG_SERIAL_PORT does not exist: $RIG_SERIAL_PORT (tip: ls /dev/tty.*)"
-    fi
-
     if [ -n "${VARA_EXE_PATH:-}" ]; then
         if [ ! -f "$VARA_EXE_PATH" ]; then
             die "VARA_EXE_PATH is set but file not found: $VARA_EXE_PATH"
@@ -116,9 +112,16 @@ require_dependencies() {
     fi
 }
 
+require_rig_serial_port_present() {
+    if [ ! -e "$RIG_SERIAL_PORT" ]; then
+        die "RIG_SERIAL_PORT does not exist: $RIG_SERIAL_PORT (tip: ls /dev/tty.*)"
+    fi
+}
+
 check_config() {
     require_config
     require_dependencies
+    require_rig_serial_port_present
 
     echo "Config OK"
     echo "  Config file: $CONFIG_FILE"
@@ -214,6 +217,9 @@ start_services() {
             exit 0
             ;;
     esac
+
+    # Only check for the USB/serial device *after* user confirms the radio is on.
+    require_rig_serial_port_present
     
     set -e  # Exit on error
     
